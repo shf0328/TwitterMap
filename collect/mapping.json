@@ -1,0 +1,31 @@
+{
+    "mappings": {
+        "tweet": {
+            "properties": {
+                "location": {
+                    "type": "geo_point"
+                },
+                "text": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "created_at": {
+                    "type": "date",
+                    "format": "EEE MMM dd HH:mm:ss Z yyyy"
+                },
+                "keyword": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "author": {
+                      "type": "string",
+                      "index": "not_analyzed"
+                  },
+                "headicon_url": {
+                      "type": "string",
+                      "index": "no"
+                }
+            }
+        }
+    }
+}
