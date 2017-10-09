@@ -65,6 +65,8 @@ def start_stream(keywords, callback):
         except Exception as e:
             print("ERROR!")
             print(str(e))
+            return str(e)
+    return ""
 
 
 if __name__ == '__main__':

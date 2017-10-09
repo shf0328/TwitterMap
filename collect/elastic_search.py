@@ -17,7 +17,7 @@ def load_mapping_config():
 
 
 def get_url():
-    return aws_es+'/'+index
+    return aws_es + '/' + index
 
 
 def is_exist():
@@ -54,5 +54,59 @@ def upload_to_es(twitter):
     pass
 
 
+def search_keyword(size, keyword, datetime):
+    returns = es.search(
+        index=index, doc_type=doc_type,
+        body={
+            "size": size,
+            "query": {
+                "bool": {
+                    "filter": [
+                        {
+                            "match": {"keyword": keyword}
+                        },
+                        {
+                            "range": {
+                                "created_at": {
+                                    "lte":datetime
+                                }
+                            }
+                        },
+                    ]
+                }
+            },
+            "sort": [
+                {"created_at": "desc"}
+            ]
+        }
+    )
+    return [item['_source'] for item in returns['hits']['hits']]
+
+
+def search_area(size, lng, lat):
+    returns = es.search(
+        index=index, doc_type=doc_type,
+        body={
+            "size": size,
+            "query": {
+                "bool": {
+                    "filter": [
+                        {
+                            "geo_distance": {
+                                "distance": "500km",
+                                "location": [lng, lat]
+                            }
+                        },
+                    ]
+                }
+            },
+            "sort": [
+                {"created_at": "desc"}
+            ]
+        }
+    )
+    return [item['_source'] for item in returns['hits']['hits']]
+
+
 if __name__ == '__main__':
-    create_index()
+    is_exist()
