@@ -13,6 +13,6 @@ Backend: served by python flask, host on Amazon elastic beanstalk + elastic sear
 ##### Click on Marker to show full twitter  
 ![1](https://raw.githubusercontent.com/shf0328/TwitterMap/master/static/2.jpg)  
   
-##### Click anywhere on map, give latest 20 tweets in that area (500km)  
+##### Click anywhere on map, give latest tweets in that area (500km) in that keyword  
 ![1](https://raw.githubusercontent.com/shf0328/TwitterMap/master/static/3.jpg)   
  

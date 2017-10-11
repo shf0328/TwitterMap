@@ -83,7 +83,7 @@ def search_keyword(size, keyword, datetime):
     return [item['_source'] for item in returns['hits']['hits']]
 
 
-def search_area(size, lng, lat):
+def search_area(size, lng, lat, keyword):
     returns = es.search(
         index=index, doc_type=doc_type,
         body={
@@ -91,6 +91,9 @@ def search_area(size, lng, lat):
             "query": {
                 "bool": {
                     "filter": [
+                        {
+                            "match": {"keyword": keyword}
+                        },
                         {
                             "geo_distance": {
                                 "distance": "500km",

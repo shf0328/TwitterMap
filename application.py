@@ -29,8 +29,9 @@ def geospatial():
     try:
         lng = float(request.args['select_lng'])
         lat = float(request.args['select_lat'])
+        keyword = str(request.args['keyword'])
         size = max(min(int(request.args['size']), 100),1)
-        return jsonify({'status': True, 'msg': search_area(size=size, lng=lng, lat=lat)})
+        return jsonify({'status': True, 'msg': search_area(size=size, lng=lng, lat=lat, keyword=keyword)})
     except Exception as e:
         return jsonify({'status': False, 'msg': str(e)})
 

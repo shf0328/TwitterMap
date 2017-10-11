@@ -80,6 +80,7 @@ function initMap() {
 		var select_lng = e.latLng.lng();
         var select_lat = e.latLng.lat();
         var select_sz = $('#size').val();
+        var select_kw = $('#keyword option:selected').text();
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function()
         {
@@ -92,7 +93,7 @@ function initMap() {
                 }
             }
         };
-        xmlHttp.open("GET", "/geospatial?select_lng="+select_lng+'&select_lat='+select_lat+'&size='+select_sz, true);
+        xmlHttp.open("GET", "/geospatial?select_lng="+select_lng+'&select_lat='+select_lat+'&size='+select_sz+'&keyword='+select_kw, true);
         xmlHttp.send();
   	});
 }
