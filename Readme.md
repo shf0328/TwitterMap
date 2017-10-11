@@ -7,7 +7,12 @@ Backend: served by python flask, host on Amazon elastic beanstalk + elastic sear
 
 ## usage
 
-#####Select keyword and time and size, then search give you markers  
-#####Click on Marker to show full twitter  
-#####Click anywhere on map, give latest 20 tweets in that area (500km)  
+##### Select keyword and time and size, then search give you markers
+![1](https://raw.githubusercontent.com/shf0328/TwitterMap/master/static/1.jpg)  
+  
+##### Click on Marker to show full twitter  
+![1](https://raw.githubusercontent.com/shf0328/TwitterMap/master/static/2.jpg)  
+  
+##### Click anywhere on map, give latest 20 tweets in that area (500km)  
+![1](https://raw.githubusercontent.com/shf0328/TwitterMap/master/static/3.jpg)   
  
